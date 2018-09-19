@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 public class MethodsExercises {
     public  static Integer add(int a, int b){
         return a + b;
@@ -37,6 +38,21 @@ public class MethodsExercises {
         }
         return factor;
     }
+    public static Integer random(int size){
+        double rand = Math.floor(Math.random() * size) + 1;
+        return (int) rand;
+    }
+
+    public static int[] diceRoll(){
+        System.out.println("Enter number of sides for a pair of dice:");
+        Scanner s2 = new Scanner(System.in);
+        int size = s2.nextInt();
+        int die1 = random(size);
+        int die2 = random(size);
+        return new int[]{die1, die2};
+
+
+    }
     public static void main(String[] args){
         System.out.println(add(1,2));
         System.out.println(subtract(2,1));
@@ -45,6 +61,7 @@ public class MethodsExercises {
         System.out.println(modulo(9,3));
         int userInput = getInteger(1,10);
         System.out.println(Factorial());
+        System.out.println(Arrays.toString(diceRoll()));
 
     }
 }
