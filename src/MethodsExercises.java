@@ -43,14 +43,33 @@ public class MethodsExercises {
         return (int) rand;
     }
 
-    public static int[] diceRoll(){
-        System.out.println("Enter number of sides for a pair of dice:");
-        Scanner s2 = new Scanner(System.in);
-        int size = s2.nextInt();
-        int die1 = random(size);
-        int die2 = random(size);
-        return new int[]{die1, die2};
-
+    public static String diceRoll(){
+        boolean rollAgain = true;
+        String results;
+        do {
+            System.out.println("Enter number of sides for a pair of dice:");
+            Scanner s2 = new Scanner(System.in);
+            int size = s2.nextInt();
+            int die1 = random(size);
+            int die2 = random(size);
+            results = Arrays.toString(new int[]{die1, die2});
+            System.out.println(results);
+            boolean invalidResponse = true;
+            do {
+                System.out.println("Do you want to roll again?: [y,n]");
+                String userResponse = s2.next();
+                if (userResponse.toLowerCase().startsWith("y")) {
+                    rollAgain = true;
+                    invalidResponse = false;
+                } else if (userResponse.toLowerCase().startsWith("n")) {
+                    rollAgain = false;
+                    invalidResponse = false;
+                } else {
+                    invalidResponse = true;
+                }
+            } while(invalidResponse);
+        } while(rollAgain);
+        return "Your final roll was " + results;
 
     }
     public static void main(String[] args){
@@ -61,7 +80,7 @@ public class MethodsExercises {
         System.out.println(modulo(9,3));
         int userInput = getInteger(1,10);
         System.out.println(Factorial());
-        System.out.println(Arrays.toString(diceRoll()));
+        System.out.println(diceRoll());
 
     }
 }
