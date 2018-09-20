@@ -14,6 +14,10 @@ public class Sandbox {
 
         return length;
     }
+    public static Integer factorial(int num){
+        if(num <= 1) return 1;
+        return num * factorial(num-1);
+    }
     public static void main(String[] args){
         int wholeNumber = 1;
         short shortNumber = 12333;
@@ -41,6 +45,7 @@ public class Sandbox {
         int arrLength = arr.length;
         System.out.println(arrLength);
         System.out.println(realLength(arr));
+        System.out.println(factorial(4));
         }
 
     }
