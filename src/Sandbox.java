@@ -14,6 +14,16 @@ public class Sandbox {
 
         return length;
     }
+    public static int[] reversedArry(int a[]){
+        int[] temp = new int[a.length];
+        int increment = 0;
+        for(int i = a.length-1; i >= 0; i--){
+                temp[increment] = a[i];
+                increment++;
+
+        }
+        return temp;
+    }
     public static Integer factorial(int num){
         if(num <= 1) return 1;
         return num * factorial(num-1);
@@ -39,13 +49,15 @@ public class Sandbox {
         }while(num < 1000000);
         int[] arr = new int[15];
         System.out.println(Arrays.toString(arr));
-        arr[0] = 1;
-        arr[1] = 2;
-        arr[3] = 3;
+        arr[0] = 5;
+        arr[1] = 3;
+        arr[2] = 12;
         int arrLength = arr.length;
         System.out.println(arrLength);
         System.out.println(realLength(arr));
         System.out.println(factorial(4));
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(reversedArry(arr)));
         }
 
     }
