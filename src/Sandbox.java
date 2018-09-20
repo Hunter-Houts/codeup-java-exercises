@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Sandbox {
+    // only works if 0 isn't a value you put in yourself. really just use ArrayList
     public static Integer realLength(int a[]){
         int length = 0;
         for(int i = 0; i < a.length; i++){
