@@ -17,7 +17,7 @@ public class Input {
         return yesNo;
     }
     public static int getInt(int min, int max){
-        System.out.println("Enter a number between " + min + " and " + max + ": ");
+//        System.out.println("Enter a number between " + min + " and " + max + ": ");
         int userInput = s.nextInt();
         if(min <= userInput && max >= userInput){
             return userInput;
