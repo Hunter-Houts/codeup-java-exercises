@@ -12,6 +12,10 @@ public class Person {
     public void sayHello(){
         System.out.println("Hello " + getName());
     }
+// Method overloaded toString to return "Hello then get name for ArraysExercise"
+//    public String toString(){
+//         return "Hello " + getName();
+//    }
 
     public static void main(String[] args) {
         Person thePerson = new Person("Hunter");
