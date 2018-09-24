@@ -28,36 +28,46 @@ public class Sandbox {
         if(num <= 1) return 1;
         return num * factorial(num-1);
     }
+    public static void countDown(int num){
+        System.out.println(num);
+        if(num <= 1) {
+            System.out.println("Blastoff!");
+            System.exit(0);
+        }
+
+        countDown(num -1);
+    }
     public static void main(String[] args){
-        int wholeNumber = 1;
-        short shortNumber = 12333;
-        byte bite = 0b10;
-        long longNumber = 1123123123;
-        float floatNumber = 1.1f;
-        double doubleNumber = 1.1234;
-        char charVar = 'a';
-        boolean bool = true;
-        String stringVar = "this is a string";
-        System.out.printf("%d %d %d %d %f %f %c %b %s%n",wholeNumber,shortNumber,bite,longNumber,floatNumber,doubleNumber,charVar,bool,stringVar);
-        long num = 2;
-        do {
-            if(num == 2){
-                System.out.printf("%d%n",num);
-            }
-            System.out.printf("%d%n",((long) Math.pow(num,2)));
-            num = (long) Math.pow(num,2);
-        }while(num < 1000000);
-        int[] arr = new int[15];
-        System.out.println(Arrays.toString(arr));
-        arr[0] = 5;
-        arr[1] = 3;
-        arr[2] = 12;
-        int arrLength = arr.length;
-        System.out.println(arrLength);
-        System.out.println(realLength(arr));
-        System.out.println(factorial(4));
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.toString(reversedArry(arr)));
+//        int wholeNumber = 1;
+//        short shortNumber = 12333;
+//        byte bite = 0b10;
+//        long longNumber = 1123123123;
+//        float floatNumber = 1.1f;
+//        double doubleNumber = 1.1234;
+//        char charVar = 'a';
+//        boolean bool = true;
+//        String stringVar = "this is a string";
+//        System.out.printf("%d %d %d %d %f %f %c %b %s%n",wholeNumber,shortNumber,bite,longNumber,floatNumber,doubleNumber,charVar,bool,stringVar);
+//        long num = 2;
+//        do {
+//            if(num == 2){
+//                System.out.printf("%d%n",num);
+//            }
+//            System.out.printf("%d%n",((long) Math.pow(num,2)));
+//            num = (long) Math.pow(num,2);
+//        }while(num < 1000000);
+//        int[] arr = new int[15];
+//        System.out.println(Arrays.toString(arr));
+//        arr[0] = 5;
+//        arr[1] = 3;
+//        arr[2] = 12;
+//        int arrLength = arr.length;
+//        System.out.println(arrLength);
+//        System.out.println(realLength(arr));
+//        System.out.println(factorial(4));
+//        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(reversedArry(arr)));
+        countDown(10);
         }
 
     }
