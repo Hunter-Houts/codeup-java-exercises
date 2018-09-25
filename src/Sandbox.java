@@ -37,6 +37,12 @@ public class Sandbox {
 
         countDown(num -1);
     }
+    public static void countUp(int num){
+        if(num >= 2){
+            countUp(num-1);
+        }
+        System.out.println(num);
+    }
     public static void main(String[] args){
 //        int wholeNumber = 1;
 //        short shortNumber = 12333;
@@ -67,8 +73,9 @@ public class Sandbox {
 //        System.out.println(factorial(4));
 //        System.out.println(Arrays.toString(arr));
 //        System.out.println(Arrays.toString(reversedArry(arr)));
-        countDown(10);
-        }
+//        countDown(10);
+        countUp(10);
+    }
 
     }
 
