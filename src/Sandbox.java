@@ -43,6 +43,17 @@ public class Sandbox {
         }
         System.out.println(num);
     }
+    static boolean sleepIn(boolean weekday, boolean vacay){
+        if(!(weekday) || vacay){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    static int over21(int num){
+        if(num < 21) return 21 - num;
+        return num * num;
+    }
     public static void main(String[] args){
 //        int wholeNumber = 1;
 //        short shortNumber = 12333;
@@ -75,6 +86,9 @@ public class Sandbox {
 //        System.out.println(Arrays.toString(reversedArry(arr)));
 //        countDown(10);
         countUp(10);
+        System.out.println(sleepIn(true, false));
+        System.out.println(over21(20));
+
     }
 
     }
