@@ -82,6 +82,13 @@ public class Contact {
             e.printStackTrace();
         }
     }
+    public void searchContact(String name){
+        if(contacts.containsKey(name)){
+            System.out.printf("%s | %s%n",name,contacts.get(name));
+        } else{
+            System.out.println("Invalid name");
+        }
+    }
 
 
 
@@ -92,6 +99,7 @@ public class Contact {
         test.addContact("test","4564564");
         test.showAllContacts();
         test.writeContacts();
+        test.searchContact("test");
 
     }
 }
