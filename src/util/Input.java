@@ -3,7 +3,7 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 public class Input {
     private static Scanner s = new Scanner(System.in);
-    static String getString(){
+    public static String getString(){
         return s.nextLine();
     }
     public static boolean yesNo() {
