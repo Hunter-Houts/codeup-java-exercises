@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,14 +52,8 @@ public class Contact {
 
     }
     public void showAllContacts(){
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<String> numbers = new ArrayList<>();
-        for(String name : contacts.keySet()){
-            names.add(name);
-        }
-        for(String number : contacts.values()){
-            numbers.add(number);
-        }
+        ArrayList<String> names = new ArrayList<>(contacts.keySet());
+        ArrayList<String> numbers = new ArrayList<>(contacts.values());
         System.out.println("Name | Number");
         System.out.println("-------------");
         for(int i = 0; i < names.size(); i++){
@@ -69,15 +64,34 @@ public class Contact {
 
     }
 
-    public void addContacts(String name, String number){
+    public void addContact(String name, String number){
         contacts.put(name,number);
     }
-    public void writeContacts(){}
+    public void writeContacts(){
+        ArrayList<String> names = new ArrayList<>(contacts.keySet());
+        ArrayList<String> numbers = new ArrayList<>(contacts.values());
+        ArrayList<String> combined = new ArrayList<>();
+        for(int i = 0; i < numbers.size(); i++){
+            combined.add(names.get(i));
+            combined.add(numbers.get(i));
+        }
+        try {
+            Files.write(FilePath,combined);
+            System.out.println("This was a triumph");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public static void main(String[] args) {
         Contact test = new Contact();
         test.setContacts();
         test.showAllContacts();
+        test.addContact("test","4564564");
+        test.showAllContacts();
+        test.writeContacts();
 
     }
 }
