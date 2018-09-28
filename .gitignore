@@ -9,4 +9,4 @@
 *.class
 out/*
 #all .txt in contacts package
-contacts/*.txt
+*.txt
