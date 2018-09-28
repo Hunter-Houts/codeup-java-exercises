@@ -30,13 +30,17 @@ public class Input {
     }
     public static int getInt(){
 //        System.out.println("Enter a whole number: ");
-        String userNumber = s.next();
-        try{
-            Integer.valueOf(userNumber);
-        } catch (NumberFormatException e){
-            System.out.println("Not an Integer " + e.getMessage());
-            System.out.println("Try again.");
+        boolean flag = true;
+        String userNumber = "";
+        while(flag) {
             userNumber = s.next();
+            try {
+                Integer.valueOf(userNumber);
+                flag = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Not an Integer " + e.getMessage());
+                System.out.println("Try again.");
+            }
         }
         return Integer.parseInt(userNumber);
     }
@@ -53,13 +57,18 @@ public class Input {
     }
     public static double getDouble(){
 //        System.out.println("Enter a number: ");
-        String userDouble = s.next();
-        try{
-            Double.valueOf(userDouble);
-        } catch (NumberFormatException e){
-            System.out.println("Not a valid input " + e.getMessage());
-            System.out.println("Try again.");
+        boolean flag = true;
+        String userDouble = "";
+        while(flag) {
             userDouble = s.next();
+            try {
+                Double.valueOf(userDouble);
+                flag = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Not a valid input " + e.getMessage());
+                System.out.println("Try again.");
+//                userDouble = s.next();
+            }
         }
         return Double.parseDouble(userDouble);
     }
@@ -70,8 +79,8 @@ public class Input {
         System.out.println(yesNo());
         System.out.println(getInt(1, 10));
         System.out.println(getInt());
-        System.out.println(getDouble(1.0, 100.00));
-        System.out.println(getDouble());
+//        System.out.println(getDouble(1.0, 100.00));
+//        System.out.println(getDouble());
     }
 }
 
