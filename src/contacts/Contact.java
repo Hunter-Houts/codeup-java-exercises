@@ -77,7 +77,6 @@ public class Contact {
         }
         try {
             Files.write(FilePath,combined);
-            System.out.println("This was a triumph");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,7 +85,15 @@ public class Contact {
         if(contacts.containsKey(name)){
             System.out.printf("%s | %s%n",name,contacts.get(name));
         } else{
-            System.out.println("Invalid name");
+            System.out.println("Invalid contact name");
+        }
+    }
+    public void deleteContact(String name){
+        if(contacts.containsKey(name)){
+            contacts.remove(name);
+            System.out.println("Contact removed");
+        } else {
+            System.out.println("Invalid contact name");
         }
     }
 
@@ -100,6 +107,8 @@ public class Contact {
         test.showAllContacts();
         test.writeContacts();
         test.searchContact("test");
+        test.deleteContact("test");
+        test.showAllContacts();
 
     }
 }
