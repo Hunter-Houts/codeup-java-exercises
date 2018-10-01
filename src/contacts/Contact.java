@@ -65,7 +65,11 @@ public class Contact {
     }
 
     public void addContact(String name, String number){
-        contacts.put(name,number);
+        if(contacts.containsKey(name)){
+            System.out.println("Sorry this contact already exists. ");
+        } else {
+            contacts.put(name, number);
+        }
     }
     public void writeContacts(){
         ArrayList<String> names = new ArrayList<>(contacts.keySet());
