@@ -1,45 +1,26 @@
 package contacts;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import static java.nio.file.Files.readAllLines;
 
 public class Contact {
-    private String name;
-    private String number;
     private HashMap<String,String> contacts;
     private String directory = "/Users/ohm/Code/codeup-java-exercises/src/contacts";
     private String filename = "contacts.txt";
     private Path FilePath = Paths.get(directory, filename);
-
+    // Initialize a HashMap on new instance of Contact class
     Contact(){
         this.contacts = new HashMap<>();
     }
 
-    public String getName(){
-        return name;
-    }
-    public String getNumber(){
-        return number;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
+    // This reads from the file (contacts.txt) and populates the HashMap with keys and values
     public void setContacts(){
-        FilePath = Paths.get(directory,filename);
         try {
             List <String> read = Files.readAllLines(FilePath);
             for(int i = 0; i < read.size() -1; i+=2){
@@ -51,6 +32,7 @@ public class Contact {
         }
 
     }
+    // This throws the keys and values into separate ArrayLists and then shows them to the user
     public void showAllContacts(){
         ArrayList<String> names = new ArrayList<>(contacts.keySet());
         ArrayList<String> numbers = new ArrayList<>(contacts.values());
@@ -58,12 +40,11 @@ public class Contact {
         System.out.println("-------------");
         for(int i = 0; i < names.size(); i++){
             System.out.printf("%s | %s%n",names.get(i),numbers.get(i));
-//            System.out.println(names.get(i));
-//            System.out.println(numbers.get(i));
+
         }
 
     }
-
+    // This allows the user to add a name, while checking that it doesn't already exist
     public void addContact(String name, String number){
         if(contacts.containsKey(name)){
             System.out.println("Sorry this contact already exists. ");
@@ -71,6 +52,7 @@ public class Contact {
             contacts.put(name, number);
         }
     }
+    // this is used to write back to the file (contacts.txt) at the exit
     public void writeContacts(){
         ArrayList<String> names = new ArrayList<>(contacts.keySet());
         ArrayList<String> numbers = new ArrayList<>(contacts.values());
@@ -85,6 +67,7 @@ public class Contact {
             e.printStackTrace();
         }
     }
+    //this searches the HashMap for a key and if it exists, spits out the information to the user for that contact
     public void searchContact(String name){
         if(contacts.containsKey(name)){
             System.out.printf("%s | %s%n",name,contacts.get(name));
@@ -92,6 +75,7 @@ public class Contact {
             System.out.println("Invalid contact name");
         }
     }
+    // This allows a user to delete an existing contact.
     public void deleteContact(String name){
         if(contacts.containsKey(name)){
             contacts.remove(name);
@@ -102,7 +86,7 @@ public class Contact {
     }
 
 
-
+    // Tested this class below before implementing it in the application.
     public static void main(String[] args) {
         Contact test = new Contact();
         test.setContacts();

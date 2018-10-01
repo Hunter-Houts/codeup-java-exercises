@@ -2,10 +2,11 @@ package contacts;
 
 import util.Input;
 public class ContactsApplication {
-    static Input scan = new Input();
+    static Input scan = new Input(); // created an instance of input to use as input validation.
     public static void main(String[] args) {
-        Contact theContacts = new Contact();
-        theContacts.setContacts();
+        Contact theContacts = new Contact(); // Created a new instance of contact called theContacts
+        theContacts.setContacts(); // Set all the names and numbers into theContacts HashMap
+        // The navigation and user experience below.
         while(true) {
             System.out.println("1. View contacts");
             System.out.println("2. Add a new contact.");
@@ -40,7 +41,7 @@ public class ContactsApplication {
             } else {
                 System.out.println("Not a valid choice!\nTry again!");
             }
-            System.out.println();
+            System.out.println(); // adds an empty line after the if statement so that it looks pretty before the loop restarts
         }
     }
 }
